@@ -17,8 +17,13 @@ int main(){
 	}
 	while(1){
 		long long int n,x,i=0,cb=1,c=0;
+		bool neg=0;
 		scanf("%lld",&n);
 		if(!n)break;
+		if(n<0){
+			neg=1;
+			n=-n;
+		}
 		x=n;
 		vector<pair<int,int> >PF;
 		while(i<primes.size()&&primes[i]*primes[i]<=x){
@@ -33,23 +38,24 @@ int main(){
 			i++;
 		}
 		sort(PF.begin(),PF.end());
+		int gcd=0;
+		for(auto &x:PF){
+			gcd=__gcd(gcd,x.first);
+		}
 		bool f=x==1;
-		for(int i=1;i<PF.size()&&f;i++){
-			if(PF[i].first%PF[0].first)f=0;
-			else{
-				PF[i].first/=PF[0].first;
-				for(int j=0;j<PF[i].first;j++){
-					cb*=PF[i].second;
-				}
+		for(int i=0;i<PF.size()&&f;i++){
+			PF[i].first/=gcd;
+			for(int j=0;j<PF[i].first;j++){
+				cb*=PF[i].second;
 			}
 		}
 		if(f){
-			cb*=PF[0].second;
 			int cnt=0;
 			while(n>1){
 				n/=cb;
 				cnt++;
 			}
+			if(neg)while(cnt%2==0)cnt/=2;
 			printf("%d\n",cnt);
 		}
 		else printf("1\n");
