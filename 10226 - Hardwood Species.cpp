@@ -8,13 +8,10 @@ int main(){
 		if(sp)printf("\n");
 		else sp=1;
 		string S;
-		char C[40];
 		int cnt=0;
-		map<string,int>M;
-		while(gets(C)!=NULL){
-			if(strlen(C)<2)break;
-			S="";
-			for(int i=0;C[i];i++)S+=C[i];
+		map<string,double>M;
+		while(getline(cin,S)){
+			if(S.size()<1)break;
 			M[S]++;
 			cnt++;
 		}
