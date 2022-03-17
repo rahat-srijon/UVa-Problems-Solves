@@ -2,10 +2,8 @@
 using namespace std;
 int main(){
 	int t;
-	bool sp=0;
 	scanf("%d",&t);
 	while(t--){
-		sp?printf("\n"):sp=1;
 		string B;
 		scanf("%*c");
 		getline(cin,B);
@@ -48,6 +46,7 @@ int main(){
 				cout<<y<<"\n";
 			}
 		}
+		printf("\n");i
 	}
 	return 0;
 }
