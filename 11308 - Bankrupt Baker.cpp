@@ -46,7 +46,7 @@ int main(){
 				cout<<y<<"\n";
 			}
 		}
-		printf("\n");i
+		printf("\n");
 	}
 	return 0;
 }
