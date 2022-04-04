@@ -11,8 +11,8 @@ void union_set(int a,int b){
 		if(S[a]<S[b])swap(a,b);
 		P[b]=a;
 		S[a]+=S[b];
-		S[b]=S[a];
 	}
+	printf("%d\n",S[a]);
 }
 void add_id(string A){ID[A]=c;make_set(c);c++;}
 int main(){
@@ -22,6 +22,7 @@ int main(){
 		int n;
 		scanf("%d",&n);
 		c=1;
+		ID.clear();
 		memset(S,0,sizeof(S));
 		memset(P,0,sizeof(P));
 		while(n--){
@@ -30,7 +31,6 @@ int main(){
 			if(!ID[A])add_id(A);
 			if(!ID[B])add_id(B);
 			union_set(ID[A],ID[B]);
-			printf("%d\n",S[ID[B]]);
 		}
 	}
 	return 0;
