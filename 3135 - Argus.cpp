@@ -13,9 +13,9 @@ int main(){
 	int k;
 	scanf("%d",&k);
 	vector<pair<int,int> >V,P;
-	for(auto [x,y]:M){
+	for(auto &x:M){
 		for(int i=1;i<=k;i++){
-			V.push_back({i*y,x});
+			V.push_back({i*x.second,x.first});
 		}
 	}
 	sort(V.begin(),V.end());
