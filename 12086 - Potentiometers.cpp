@@ -20,7 +20,7 @@ void update(int at,int l,int r,int pos,int val){
 	}
 	int m=(l+r)/2;
 	if(pos<=m)update(2*at,l,m,pos,val);
-	else update(2*at,m+1,r,pos,val);
+	else update(2*at+1,m+1,r,pos,val);
 	tree[at]=tree[2*at]+tree[2*at+1];
 }
 int query(int at,int l,int r,int ql,int qr){
@@ -47,7 +47,7 @@ int main(){
 			if(O=="M"){
 				cout<<query(1,1,n,l,r)<<"\n";
 			}
-			else{
+			else if(O=="S"){
 				update(1,1,n,l,r);
 			}
 		}
